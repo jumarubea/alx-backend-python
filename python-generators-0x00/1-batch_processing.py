@@ -23,7 +23,7 @@ def stream_users_in_batches(batch_size):
         batch = cursor.fetchmany(batch_size)
         if not batch:
             break
-        yield batch  # Yield a full batch (list of dicts)
+        return batch  # Yield a full batch (list of dicts)
 
     cursor.close()
     connection.close()
