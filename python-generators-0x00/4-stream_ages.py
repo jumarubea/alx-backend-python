@@ -16,7 +16,7 @@ def connect_to_prodev():
     )
 
 
-def stream_user_ages(connection):
+def stream_user_age(connection):
     cursor = connection.cursor()
     cursor.execute(f"SELECT age FROM TABLE_NAM}")
     for (age,) in cursor:
@@ -24,12 +24,12 @@ def stream_user_ages(connection):
     cursor.close()
     
 
-def calculate_average_age():
+def stream_user_ages():
     connection = connect_to_prodev()
     total = 0
     count = 0
 
-    for age in stream_user_ages(connection):
+    for age in stream_user_age(connection):
         total += age
         count += 1
 
@@ -43,5 +43,5 @@ def calculate_average_age():
 
 # ---------- RUN SCRIPT ----------
 if __name__ == "__main__":
-    calculate_average_age()
+    stream_user_ages()
 
