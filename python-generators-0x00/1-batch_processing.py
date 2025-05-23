@@ -3,7 +3,7 @@ import mysql.connector
 # ---------- CONFIGURATION ----------
 HOST = "localhost"
 USER = "root"
-PASSWORD = "your_password"  # 🔁 Replace with your MySQL password
+PASSWORD = "password"
 DB_NAME = "ALX_prodev"
 TABLE_NAME = "user_data"
 # ----------------------------------
@@ -17,7 +17,7 @@ def stream_users_in_batches(batch_size):
         database=DB_NAME
     )
     cursor = connection.cursor(dictionary=True)
-    cursor.execute(f"SELECT * FROM {TABLE_NAME}")
+    cursor.execute(f"SELECT * FROM user_data")
 
     while True:
         batch = cursor.fetchmany(batch_size)
