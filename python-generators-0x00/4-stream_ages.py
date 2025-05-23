@@ -18,7 +18,7 @@ def connect_to_prodev():
 
 def stream_user_ages(connection):
     cursor = connection.cursor()
-    cursor.execute(f"SELECT age FROM {TABLE_NAME}")
+    cursor.execute(f"SELECT age FROM TABLE_NAM}")
     for (age,) in cursor:
         yield float(age)
     cursor.close()
